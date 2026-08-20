@@ -67,7 +67,7 @@ export default function LeadForm({
       //     dallas@alairductcleaning.com — click "Activate Form" once.
       //     All submissions after activation arrive instantly.
       const res = await fetch(
-        "https://formsubmit.co/ajax/dallas@alairductcleaning.com",
+        "https://formsubmit.co/ajax/info@alhomeservices.us",
         {
           method: "POST",
           headers: { "Content-Type": "application/json", Accept: "application/json" },
