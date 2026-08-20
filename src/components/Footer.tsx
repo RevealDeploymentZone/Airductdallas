@@ -13,13 +13,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Col 1: Brand */}
           <div>
-            <div className="mb-4">
+            <div className="mb-4 inline-block bg-white rounded-xl px-3 py-2">
               <Image
                 src="/logo.png"
                 alt="AL Air Duct Cleaning Dallas"
                 width={220}
                 height={160}
-                className="h-12 w-auto brightness-0 invert"
+                className="h-12 w-auto"
               />
             </div>
             <p className="text-sm leading-relaxed mb-5">
