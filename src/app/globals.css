@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-plus-jakarta: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 17px;
+  line-height: 1.65;
+  color: #475569;
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #0F172A;
+  font-family: var(--font-plus-jakarta);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* Utility classes */
+.section-pad {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .section-pad {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Answer box for AEO */
+.answer-box {
+  border: 2px solid #0B5563;
+  border-left-width: 6px;
+  border-radius: 8px;
+  background: #E6F3F5;
+  padding: 1.25rem 1.5rem;
+  font-size: 1rem;
+  color: #0F172A;
+  line-height: 1.6;
+}
+
+/* Definition callout */
+.definition-box {
+  border: 1px solid #E2E8F0;
+  border-left: 4px solid #F26522;
+  border-radius: 8px;
+  background: #FFF9F6;
+  padding: 1rem 1.25rem;
+}
+
+/* Card base */
+.card {
+  background: white;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.08);
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px 0 rgb(0 0 0 / 0.10);
+}

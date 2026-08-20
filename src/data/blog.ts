@@ -1,0 +1,177 @@
+export interface BlogPost {
+  slug: string;
+  title: string;
+  excerpt: string;
+  datePublished: string;
+  dateModified: string;
+  author: string;
+  category: string;
+  status: "published" | "stub";
+  content?: string; // Full content for published posts
+  outline?: string[]; // Outline for stubs
+}
+
+export const BLOG_POSTS: BlogPost[] = [
+  {
+    slug: "air-duct-cleaning-cost-dallas",
+    title: "How much does air duct cleaning cost in Dallas? (2026 pricing guide)",
+    excerpt: "A transparent breakdown of what Dallas homeowners actually pay for air duct cleaning, what drives the cost up or down, and how to avoid getting overcharged.",
+    datePublished: "2026-01-15",
+    dateModified: "2026-08-01",
+    author: "TODO: AUTHOR NAME",
+    category: "Pricing",
+    status: "published",
+  },
+  {
+    slug: "why-dallas-home-gets-dusty",
+    title: "Why your Dallas home gets dusty again two days after cleaning",
+    excerpt: "Cleaning the house but watching dust appear again within 48 hours is a common DFW experience. Here's what's actually causing it and what helps.",
+    datePublished: "2026-02-10",
+    dateModified: "2026-08-01",
+    author: "TODO: AUTHOR NAME",
+    category: "Indoor air quality",
+    status: "published",
+  },
+  {
+    slug: "air-duct-cleaning-vs-dryer-vent-cleaning",
+    title: "Air duct cleaning vs dryer vent cleaning — what's the difference?",
+    excerpt: "Two different systems, two different purposes, and two different risk profiles. Here's how to think about both services.",
+    datePublished: "2026-03-05",
+    dateModified: "2026-08-01",
+    author: "TODO: AUTHOR NAME",
+    category: "Education",
+    status: "published",
+  },
+  {
+    slug: "attic-ductwork-texas-leak-problem",
+    title: "Attic ductwork in Texas homes: the leak problem nobody mentions",
+    excerpt: "Most DFW homes run flexible duct through unconditioned attic space. At Texas attic temperatures, this creates a performance and air quality problem worth understanding.",
+    datePublished: "2026-04-01",
+    dateModified: "2026-04-01",
+    author: "TODO: AUTHOR NAME",
+    category: "HVAC",
+    status: "stub",
+    outline: [
+      "Why most DFW homes use attic-mounted flex duct",
+      "What happens at 140°F+ attic temperatures",
+      "How duct connections fail over time",
+      "The air quality impact of attic air entering the supply stream",
+      "Signs of duct leakage in your home",
+      "What repair or replacement looks like",
+    ],
+  },
+  {
+    slug: "cedar-fever-hvac-dallas",
+    title: "Cedar fever and your HVAC system — what actually helps",
+    excerpt: "Mountain cedar pollen season in North Texas is uniquely severe. Here's what your HVAC system can and can't do about it.",
+    datePublished: "2026-04-15",
+    dateModified: "2026-04-15",
+    author: "TODO: AUTHOR NAME",
+    category: "Allergies",
+    status: "stub",
+    outline: [
+      "What makes mountain cedar pollen different",
+      "When cedar season hits DFW and how long it lasts",
+      "What standard MERV-8 filters don't catch",
+      "Filter upgrades that help (MERV-11, MERV-13)",
+      "The role of duct cleaning during pollen season",
+      "When to keep windows closed vs open",
+    ],
+  },
+  {
+    slug: "how-often-clean-air-ducts-dallas",
+    title: "How often should Dallas homeowners clean their air ducts?",
+    excerpt: "The honest answer isn't a fixed schedule — it depends on your home, your family, and the DFW-specific conditions that accelerate buildup.",
+    datePublished: "2026-05-01",
+    dateModified: "2026-05-01",
+    author: "TODO: AUTHOR NAME",
+    category: "Maintenance",
+    status: "stub",
+    outline: [
+      "What the EPA actually says about cleaning frequency",
+      "Conditions that accelerate buildup in DFW",
+      "Household factors: pets, children, smokers, allergies",
+      "How to assess your system without a professional",
+      "Building a realistic maintenance calendar",
+    ],
+  },
+  {
+    slug: "signs-mold-ductwork",
+    title: "7 signs of mold in your ductwork (and what to do next)",
+    excerpt: "Mold in HVAC ducts is more common in Dallas than most homeowners realize, and it rarely announces itself clearly. Here are the signs and the right response.",
+    datePublished: "2026-05-15",
+    dateModified: "2026-05-15",
+    author: "TODO: AUTHOR NAME",
+    category: "Mold",
+    status: "stub",
+    outline: [
+      "Sign 1: Musty odor when HVAC runs",
+      "Sign 2: Dark spots near registers",
+      "Sign 3: Worsening allergy symptoms indoors",
+      "Sign 4: Visible growth in accessible parts of the system",
+      "Sign 5: Recent water damage",
+      "Sign 6: Condensation on duct surfaces",
+      "Sign 7: Persistent respiratory symptoms in household members",
+      "What to do if you suspect mold — inspection process",
+      "TDLR regulation note for Texas homeowners",
+    ],
+  },
+  {
+    slug: "does-duct-cleaning-lower-electricity-bill",
+    title: "Does duct cleaning lower your electricity bill? The honest answer",
+    excerpt: "The short answer is: it depends on what's dirty. Here's the nuanced version.",
+    datePublished: "2026-06-01",
+    dateModified: "2026-06-01",
+    author: "TODO: AUTHOR NAME",
+    category: "Energy",
+    status: "stub",
+    outline: [
+      "How dirty ducts do and don't affect energy use",
+      "The evaporator coil — where fouling actually matters",
+      "Blower wheel efficiency and debris buildup",
+      "What the research says (and doesn't say)",
+      "DFW-specific factors: long seasons, high temperatures",
+      "When a full system cleaning produces real efficiency gains",
+    ],
+  },
+  {
+    slug: "dryer-vent-fires-dfw-summers",
+    title: "Dryer vent fires: why lint buildup is worse in DFW summers",
+    excerpt: "DFW's extreme summer heat, long vent runs in newer homes, and high laundry loads make dryer vent fires a genuine seasonal risk in North Texas.",
+    datePublished: "2026-06-15",
+    dateModified: "2026-06-15",
+    author: "TODO: AUTHOR NAME",
+    category: "Safety",
+    status: "stub",
+    outline: [
+      "NFPA statistics on dryer fires",
+      "Why DFW attic heat makes lint more combustible",
+      "Longer vent runs in newer two-story DFW homes",
+      "Signs your dryer vent needs cleaning now",
+      "What professional cleaning covers vs DIY kits",
+    ],
+  },
+  {
+    slug: "what-to-expect-duct-cleaning-appointment",
+    title: "What to expect during a professional duct cleaning appointment",
+    excerpt: "A step-by-step walkthrough of what happens from the moment the technician arrives to when they leave — so you know what a proper cleaning looks like.",
+    datePublished: "2026-07-01",
+    dateModified: "2026-07-01",
+    author: "TODO: AUTHOR NAME",
+    category: "Education",
+    status: "stub",
+    outline: [
+      "Before the appointment — what to prepare",
+      "The pre-cleaning inspection",
+      "Setting up negative pressure",
+      "How each duct run gets cleaned",
+      "Register cleaning",
+      "Air handler and plenum work",
+      "Post-cleaning inspection",
+      "The final walkthrough",
+      "Red flags that indicate a company is cutting corners",
+    ],
+  },
+];
+
+export const PUBLISHED_POSTS = BLOG_POSTS.filter((p) => p.status === "published");
