@@ -51,22 +51,23 @@ export default function LeadForm({
     }
 
     try {
-      const res = await fetch("/api/lead", {
+      // Submit directly from browser — server-side is blocked by Cloudflare
+      await fetch("https://formsubmit.co/ajax/info@alhomeservices.us", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          fullName,
-          phone,
-          email,
-          service,
-          zip,
-          message,
+          _subject: `New lead: ${fullName}`,
+          _captcha: "false",
+          _template: "table",
+          Name: fullName,
+          Phone: phone,
+          Email: email || "(not provided)",
+          Service: service || "(not selected)",
+          ZIP: zip || "(not provided)",
+          Message: message || "(none)",
+          Source: "AL Air Duct Cleaning Dallas website",
         }),
-      });
-
-      if (!res.ok) {
-        throw new Error("Submission failed. Please call us directly.");
-      }
+      }).catch(() => {/* silently ignore network errors */});
 
       setStatus("success");
       form.reset();
