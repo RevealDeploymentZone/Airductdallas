@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
 import { BUSINESS, SERVICES } from "@/data/business";
 
@@ -23,16 +24,15 @@ export default function Header() {
     >
       <div className="container flex items-center justify-between h-16 gap-6">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
-          <div className="w-9 h-9 rounded-lg bg-[#0B5563] flex items-center justify-center text-white font-bold text-sm font-display">
-            AL
-          </div>
-          <div className="hidden sm:block">
-            <div className="font-bold text-[#0F172A] text-sm leading-tight font-display">
-              AL Air Duct Cleaning
-            </div>
-            <div className="text-xs text-[#475569]">Dallas, Texas</div>
-          </div>
+        <Link href="/" className="flex items-center shrink-0">
+          <Image
+            src="/logo.svg"
+            alt="AL Air Duct Cleaning Dallas"
+            width={160}
+            height={54}
+            priority
+            className="h-11 w-auto"
+          />
         </Link>
 
         {/* Desktop nav */}

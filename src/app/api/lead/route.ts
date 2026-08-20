@@ -62,53 +62,48 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: validationError }, { status: 400 });
   }
 
-  // TODO: Replace with your email notification setup
-  // Options:
-  //   1. Resend: https://resend.com — add RESEND_API_KEY env var
-  //   2. SendGrid
-  //   3. Nodemailer with SMTP
-  //   4. Webhook to CRM (HubSpot, Pipedrive, etc.)
-  //
-  // Example with Resend:
-  // const { Resend } = await import("resend");
-  // const resend = new Resend(process.env.RESEND_API_KEY);
-  // await resend.emails.send({
-  //   from: "leads@dallas.alairductcleaning.com",
-  //   to: process.env.LEAD_EMAIL || "info@dallas.alairductcleaning.com",
-  //   subject: `New lead: ${body.fullName} — ${body.service || "General inquiry"}`,
-  //   html: `
-  //     <h2>New lead from AL Air Duct Cleaning Dallas website</h2>
-  //     <p><strong>Name:</strong> ${body.fullName}</p>
-  //     <p><strong>Phone:</strong> ${body.phone}</p>
-  //     <p><strong>Email:</strong> ${body.email || "(not provided)"}</p>
-  //     <p><strong>Service:</strong> ${body.service || "(not specified)"}</p>
-  //     <p><strong>ZIP:</strong> ${body.zip || "(not provided)"}</p>
-  //     <p><strong>Message:</strong> ${body.message || "(none)"}</p>
-  //   `,
-  // });
+  // ── Formsubmit.co (100% free, no API key required) ──
+  // First submission triggers a one-time activation email to info@alhomeservices.us
+  // Click "Activate Form" in that email once — then all future leads arrive instantly.
+  try {
+    const serviceLabel: Record<string, string> = {
+      "air-duct-cleaning": "Air Duct Cleaning",
+      "dryer-vent-cleaning": "Dryer Vent Cleaning",
+      "hvac-cleaning": "HVAC Cleaning",
+      "residential-air-duct-cleaning": "Residential Duct Cleaning",
+      "commercial-air-duct-cleaning": "Commercial Duct Cleaning",
+      "sanitization-deodorization": "Sanitization & Deodorization",
+      "mold-inspection-removal": "Mold Inspection & Removal",
+      "not-sure": "Not sure",
+    };
 
-  // Log to console in development
-  if (process.env.NODE_ENV === "development") {
-    console.log("Lead form submission:", {
-      name: body.fullName,
-      phone: body.phone,
-      email: body.email,
-      service: body.service,
-      zip: body.zip,
-      message: body.message,
-      timestamp: new Date().toISOString(),
+    const payload = {
+      _subject: `New lead: ${body.fullName} — ${serviceLabel[body.service] ?? body.service ?? "General inquiry"}`,
+      _captcha: "false",          // disable Formsubmit's own captcha (we already honeypot)
+      _template: "table",         // clean table-style email
+      Name: body.fullName,
+      Phone: body.phone,
+      Email: body.email || "(not provided)",
+      Service: serviceLabel[body.service] ?? body.service ?? "(not selected)",
+      ZIP: body.zip || "(not provided)",
+      Message: body.message || "(none)",
+      Source: "AL Air Duct Cleaning Dallas — website lead form",
+    };
+
+    const res = await fetch("https://formsubmit.co/ajax/info@alhomeservices.us", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(payload),
     });
-  }
 
-  // TODO: Optionally send to a webhook
-  // const webhookUrl = process.env.LEAD_WEBHOOK_URL;
-  // if (webhookUrl) {
-  //   await fetch(webhookUrl, {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify({ ...body, source: "website", timestamp: new Date().toISOString() }),
-  //   });
-  // }
+    if (!res.ok) {
+      // Formsubmit returned an error — log it but don't block the user
+      console.error("Formsubmit error:", res.status, await res.text().catch(() => ""));
+    }
+  } catch (err) {
+    // Network error — log it but still return success to the user
+    console.error("Formsubmit fetch failed:", err);
+  }
 
   return NextResponse.json({ success: true });
 }

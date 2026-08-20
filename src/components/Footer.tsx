@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { BUSINESS, SERVICES, SERVICE_AREAS } from "@/data/business";
 
@@ -12,14 +13,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Col 1: Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg bg-[#0B5563] flex items-center justify-center text-white font-bold text-sm">
-                AL
-              </div>
-              <div className="text-white font-bold text-sm leading-tight">
-                AL Air Duct Cleaning<br />
-                <span className="font-normal text-[#94A3B8] text-xs">Dallas, Texas</span>
-              </div>
+            <div className="mb-4">
+              <Image
+                src="/logo.svg"
+                alt="AL Air Duct Cleaning Dallas"
+                width={160}
+                height={54}
+                className="h-12 w-auto brightness-0 invert"
+              />
             </div>
             <p className="text-sm leading-relaxed mb-5">
               Professional air duct, dryer vent, and HVAC cleaning across Dallas–Fort Worth. Available 24/7 with same-day scheduling.

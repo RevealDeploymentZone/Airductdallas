@@ -67,6 +67,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: BUSINESS.domain,
   },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

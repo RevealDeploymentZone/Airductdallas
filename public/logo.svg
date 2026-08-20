@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 120" fill="none">
+
+  <!-- ══ A LETTER with house cutout ══ -->
+  <!-- Full A polygon -->
+  <polygon points="58,8 88,92 28,92" fill="#0D2348"/>
+  <!-- White inner triangle (makes A hollow) -->
+  <polygon points="58,26 74,76 42,76" fill="white"/>
+  <!-- White crossbar area restore — thin bar across A -->
+  <rect x="38" y="56" width="40" height="8" fill="#0D2348"/>
+  <!-- House shape cutout inside A: roof + body -->
+  <!-- Roof triangle (white) -->
+  <polygon points="58,30 42,46 74,46" fill="white"/>
+  <!-- Body rectangle (white) -->
+  <rect x="43" y="46" width="30" height="22" fill="white"/>
+  <!-- Window (dark) -->
+  <rect x="51" y="50" width="13" height="10" fill="#0D2348"/>
+
+  <!-- ══ L LETTER ══ -->
+  <rect x="94" y="8" width="13" height="84" fill="#0D2348" rx="1"/>
+  <rect x="94" y="82" width="42" height="10" fill="#0D2348" rx="1"/>
+
+  <!-- ══ FAN / DUCT ASSEMBLY ══ -->
+  <!-- Outer duct tube rings (perspective ellipses) -->
+  <g transform="translate(196,46) rotate(-12)">
+    <ellipse cx="0" cy="0" rx="40" ry="13" fill="none" stroke="#94A8BE" stroke-width="5.5"/>
+    <ellipse cx="0" cy="0" rx="32" ry="10" fill="none" stroke="#ADBDCD" stroke-width="4"/>
+    <ellipse cx="0" cy="0" rx="24" ry="7.5" fill="none" stroke="#C0CFDC" stroke-width="3"/>
+  </g>
+  <!-- Fan circle fill -->
+  <circle cx="196" cy="46" r="21" fill="#C8D8E8"/>
+  <!-- Fan blades (dark, 4-blade) -->
+  <path d="M196,28 C200,34 202,40 196,44 C200,40 206,42 208,46 C202,50 196,50 194,46 C196,52 192,56 188,54 C186,48 188,42 192,40 C186,44 182,40 184,36 C190,32 196,34 198,38 Z" fill="#0D2348"/>
+  <!-- Sparkle center -->
+  <circle cx="196" cy="46" r="5" fill="#29ABD4"/>
+  <!-- Sparkle dots -->
+  <circle cx="196" cy="38" r="2" fill="#29ABD4"/>
+  <circle cx="204" cy="40" r="1.5" fill="#29ABD4"/>
+  <circle cx="206" cy="48" r="1.5" fill="#29ABD4"/>
+
+  <!-- ══ BLUE WAVE ══ -->
+  <path d="M16,78 C55,68 100,74 150,71 C190,68 230,65 275,72 C295,75 315,78 330,74" stroke="#1A9ED4" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+  <path d="M20,86 C60,77 105,83 155,80 C195,77 235,74 278,81 C298,84 316,87 328,83" stroke="#55C8EC" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- ══ TEXT BLOCK ══ -->
+  <!-- "AIR DUCT" -->
+  <text x="10" y="108" font-family="'Arial Black',Arial,sans-serif" font-weight="900" font-size="22" fill="#0D2348" letter-spacing="1.5">AIR DUCT</text>
+
+  <!-- "—CLEANING—" in blue -->
+  <text x="148" y="108" font-family="Arial,sans-serif" font-weight="700" font-size="14" fill="#1A9ED4" letter-spacing="2.5">—CLEANING—</text>
+
+  <!-- "DALLAS" -->
+  <text x="157" y="120" font-family="Arial,sans-serif" font-weight="400" font-size="9" fill="#7A8FA6" letter-spacing="5.5">— DALLAS —</text>
+
+</svg>
