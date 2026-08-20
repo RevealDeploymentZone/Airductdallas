@@ -1,54 +1,75 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 120" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 390">
 
-  <!-- ══ A LETTER with house cutout ══ -->
-  <!-- Full A polygon -->
-  <polygon points="58,8 88,92 28,92" fill="#0D2348"/>
-  <!-- White inner triangle (makes A hollow) -->
-  <polygon points="58,26 74,76 42,76" fill="white"/>
-  <!-- White crossbar area restore — thin bar across A -->
-  <rect x="38" y="56" width="40" height="8" fill="#0D2348"/>
-  <!-- House shape cutout inside A: roof + body -->
-  <!-- Roof triangle (white) -->
-  <polygon points="58,30 42,46 74,46" fill="white"/>
-  <!-- Body rectangle (white) -->
-  <rect x="43" y="46" width="30" height="22" fill="white"/>
-  <!-- Window (dark) -->
-  <rect x="51" y="50" width="13" height="10" fill="#0D2348"/>
+  <!-- ═══════ A LETTER ═══════ -->
+  <!-- Solid navy A (includes crossbar zone) -->
+  <polygon points="15,215 108,12 158,12 250,215 214,215 168,138 78,138 42,215" fill="#1B2E5C"/>
+  <!-- White interior triangle of A -->
+  <polygon points="133,46 80,136 186,136" fill="white"/>
+  <!-- House roof: navy triangle sitting inside white space -->
+  <polygon points="133,80 80,135 186,135" fill="#1B2E5C"/>
+  <!-- House window — two white panes side by side -->
+  <rect x="104" y="153" width="23" height="20" rx="1" fill="white"/>
+  <rect x="132" y="153" width="23" height="20" rx="1" fill="white"/>
 
-  <!-- ══ L LETTER ══ -->
-  <rect x="94" y="8" width="13" height="84" fill="#0D2348" rx="1"/>
-  <rect x="94" y="82" width="42" height="10" fill="#0D2348" rx="1"/>
+  <!-- ═══════ L LETTER ═══════ -->
+  <rect x="265" y="12" width="44" height="203" fill="#1B2E5C"/>
+  <rect x="265" y="178" width="85" height="37" fill="#1B2E5C"/>
 
-  <!-- ══ FAN / DUCT ASSEMBLY ══ -->
-  <!-- Outer duct tube rings (perspective ellipses) -->
-  <g transform="translate(196,46) rotate(-12)">
-    <ellipse cx="0" cy="0" rx="40" ry="13" fill="none" stroke="#94A8BE" stroke-width="5.5"/>
-    <ellipse cx="0" cy="0" rx="32" ry="10" fill="none" stroke="#ADBDCD" stroke-width="4"/>
-    <ellipse cx="0" cy="0" rx="24" ry="7.5" fill="none" stroke="#C0CFDC" stroke-width="3"/>
-  </g>
-  <!-- Fan circle fill -->
-  <circle cx="196" cy="46" r="21" fill="#C8D8E8"/>
-  <!-- Fan blades (dark, 4-blade) -->
-  <path d="M196,28 C200,34 202,40 196,44 C200,40 206,42 208,46 C202,50 196,50 194,46 C196,52 192,56 188,54 C186,48 188,42 192,40 C186,44 182,40 184,36 C190,32 196,34 198,38 Z" fill="#0D2348"/>
-  <!-- Sparkle center -->
-  <circle cx="196" cy="46" r="5" fill="#29ABD4"/>
-  <!-- Sparkle dots -->
-  <circle cx="196" cy="38" r="2" fill="#29ABD4"/>
-  <circle cx="204" cy="40" r="1.5" fill="#29ABD4"/>
-  <circle cx="206" cy="48" r="1.5" fill="#29ABD4"/>
+  <!-- ═══════ CIRCULAR DUCT / FAN ═══════ -->
+  <!-- Concentric rings — 3-D cylinder depth effect -->
+  <circle cx="448" cy="96" r="82" fill="#8898B4"/>
+  <circle cx="448" cy="96" r="76" fill="#6C7E9C"/>
+  <circle cx="448" cy="96" r="71" fill="#A2B0C8"/>
+  <circle cx="448" cy="96" r="65" fill="#60728E"/>
+  <circle cx="448" cy="96" r="59" fill="#1A2A48"/>
+  <!-- 4 curved fan blades (navy) -->
+  <path d="M448,96 C433,61 443,36 458,46 C473,56 473,81 448,96 Z" fill="#1B2E5C"/>
+  <path d="M448,96 C433,61 443,36 458,46 C473,56 473,81 448,96 Z" fill="#1B2E5C" transform="rotate(90,448,96)"/>
+  <path d="M448,96 C433,61 443,36 458,46 C473,56 473,81 448,96 Z" fill="#1B2E5C" transform="rotate(180,448,96)"/>
+  <path d="M448,96 C433,61 443,36 458,46 C473,56 473,81 448,96 Z" fill="#1B2E5C" transform="rotate(270,448,96)"/>
+  <!-- Centre accent -->
+  <circle cx="448" cy="96" r="13" fill="#22B8EC"/>
+  <circle cx="448" cy="96" r="5"  fill="white"/>
 
-  <!-- ══ BLUE WAVE ══ -->
-  <path d="M16,78 C55,68 100,74 150,71 C190,68 230,65 275,72 C295,75 315,78 330,74" stroke="#1A9ED4" stroke-width="5.5" fill="none" stroke-linecap="round"/>
-  <path d="M20,86 C60,77 105,83 155,80 C195,77 235,74 278,81 C298,84 316,87 328,83" stroke="#55C8EC" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- 4-point sparkle stars (sky blue) -->
+  <path d="M514,40 L517,31 L520,40 L529,37 L520,46 L517,55 L514,46 L505,49 Z" fill="#22C6FA"/>
+  <path d="M527,67 L529,61 L531,67 L537,65 L531,71 L529,77 L527,71 L521,73 Z" fill="#22C6FA"/>
+  <path d="M506,18 L507,14 L508,18 L512,17 L508,20 L507,24 L506,20 L502,21 Z" fill="#22C6FA"/>
 
-  <!-- ══ TEXT BLOCK ══ -->
-  <!-- "AIR DUCT" -->
-  <text x="10" y="108" font-family="'Arial Black',Arial,sans-serif" font-weight="900" font-size="22" fill="#0D2348" letter-spacing="1.5">AIR DUCT</text>
+  <!-- ═══════ BLUE WAVE ═══════ -->
+  <path d="M8,213 C70,196 142,226 214,212 C286,198 362,230 432,215 C468,208 512,213 552,218"
+        fill="none" stroke="#1EB8E8" stroke-width="6.5" stroke-linecap="round"/>
+  <path d="M8,222 C70,205 142,235 214,221 C286,207 362,239 432,224 C468,217 512,222 552,227"
+        fill="none" stroke="#1590CB" stroke-width="4" stroke-linecap="round" opacity="0.55"/>
 
-  <!-- "—CLEANING—" in blue -->
-  <text x="148" y="108" font-family="Arial,sans-serif" font-weight="700" font-size="14" fill="#1A9ED4" letter-spacing="2.5">—CLEANING—</text>
+  <!-- ═══════ AIR DUCT ═══════ -->
+  <text x="280" y="298"
+        text-anchor="middle"
+        font-family="'Arial Black','Franklin Gothic Heavy',Impact,sans-serif"
+        font-weight="900"
+        font-size="74"
+        fill="#1B2E5C">AIR DUCT</text>
 
-  <!-- "DALLAS" -->
-  <text x="157" y="120" font-family="Arial,sans-serif" font-weight="400" font-size="9" fill="#7A8FA6" letter-spacing="5.5">— DALLAS —</text>
+  <!-- ═══════ —CLEANING— ═══════ -->
+  <rect x="18"  y="321" width="148" height="2.5" fill="#22B8EC"/>
+  <text x="280" y="340"
+        text-anchor="middle"
+        font-family="'Arial Black','Franklin Gothic Heavy',Impact,sans-serif"
+        font-weight="900"
+        font-size="37"
+        fill="#22B8EC"
+        letter-spacing="5">CLEANING</text>
+  <rect x="394" y="321" width="148" height="2.5" fill="#22B8EC"/>
+
+  <!-- ═══════ —DALLAS— ═══════ -->
+  <rect x="54"  y="363" width="152" height="1.5" fill="#8090A8"/>
+  <text x="280" y="375"
+        text-anchor="middle"
+        font-family="Arial,sans-serif"
+        font-weight="600"
+        font-size="23"
+        fill="#8090A8"
+        letter-spacing="9">DALLAS</text>
+  <rect x="354" y="363" width="152" height="1.5" fill="#8090A8"/>
 
 </svg>

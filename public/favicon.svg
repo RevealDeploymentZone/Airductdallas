@@ -1,20 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- Background circle -->
-  <rect width="32" height="32" rx="6" fill="#0D2348"/>
+  <!-- Navy background -->
+  <rect width="32" height="32" rx="5" fill="#1B2E5C"/>
 
-  <!-- A letter with small house -->
-  <polygon points="16,3 24,27 8,27" fill="white"/>
-  <!-- Inner hollow -->
-  <polygon points="16,9 21,24 11,24" fill="#0D2348"/>
-  <!-- Crossbar -->
-  <rect x="10" y="18" width="12" height="3" fill="white"/>
-  <!-- House roof -->
-  <polygon points="16,10 10,16 22,16" fill="white"/>
-  <!-- House body -->
-  <rect x="11" y="16" width="10" height="7" fill="white"/>
+  <!-- "A" — white, bold, with house -->
+  <!-- A outer shape -->
+  <polygon points="2,30 13,3 19,3 30,30 25,30 21,18 11,18 7,30" fill="white"/>
+  <!-- White interior triangle of A (same white = cut from A via navy) -->
+  <polygon points="16,8 11,18 21,18" fill="#1B2E5C"/>
+  <!-- House roof inside the A -->
+  <polygon points="16,11 11,18 21,18" fill="white"/>
   <!-- Window -->
-  <rect x="13" y="17" width="5" height="4" fill="#0D2348"/>
+  <rect x="12" y="19" width="4"  height="4" rx="0.5" fill="#1B2E5C"/>
+  <rect x="17" y="19" width="4"  height="4" rx="0.5" fill="#1B2E5C"/>
 
-  <!-- Blue wave at bottom -->
-  <path d="M2,28 Q10,25 16,27 Q22,29 30,26" stroke="#1A9ED4" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Blue wave -->
+  <path d="M1,28 C7,25 13,27 16,26 C19,25 25,23 31,26"
+        fill="none" stroke="#22B8EC" stroke-width="2" stroke-linecap="round"/>
 </svg>
