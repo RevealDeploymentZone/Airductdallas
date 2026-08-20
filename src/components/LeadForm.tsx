@@ -17,17 +17,6 @@ export default function LeadForm({
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [error, setError] = useState("");
 
-  const SERVICE_LABELS: Record<string, string> = {
-    "air-duct-cleaning": "Air Duct Cleaning",
-    "dryer-vent-cleaning": "Dryer Vent Cleaning",
-    "hvac-cleaning": "HVAC Cleaning",
-    "residential-air-duct-cleaning": "Residential Duct Cleaning",
-    "commercial-air-duct-cleaning": "Commercial Duct Cleaning",
-    "sanitization-deodorization": "Sanitization & Deodorization",
-    "mold-inspection-removal": "Mold Inspection & Removal",
-    "not-sure": "Not sure",
-  };
-
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
@@ -62,33 +51,20 @@ export default function LeadForm({
     }
 
     try {
-      // Submit directly to Formsubmit.co AJAX (free, no API key)
-      // ⚠️  FIRST SUBMISSION: Formsubmit will send an activation email to
-      //     dallas@alairductcleaning.com — click "Activate Form" once.
-      //     All submissions after activation arrive instantly.
-      const res = await fetch(
-        "https://formsubmit.co/ajax/info@alhomeservices.us",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({
-            _subject: `New lead: ${fullName} — ${SERVICE_LABELS[service] ?? "General inquiry"}`,
-            _captcha: "false",
-            _template: "table",
-            Name: fullName,
-            Phone: phone,
-            Email: email || "(not provided)",
-            Service: SERVICE_LABELS[service] ?? "(not selected)",
-            ZIP: zip || "(not provided)",
-            Message: message || "(none)",
-            Source: "AL Air Duct Cleaning Dallas website",
-          }),
-        }
-      );
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName,
+          phone,
+          email,
+          service,
+          zip,
+          message,
+        }),
+      });
 
-      const json = await res.json().catch(() => ({}));
-
-      if (!res.ok || json.success === "false") {
+      if (!res.ok) {
         throw new Error("Submission failed. Please call us directly.");
       }
 
