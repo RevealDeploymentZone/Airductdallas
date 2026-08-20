@@ -3,7 +3,7 @@ export const BUSINESS = {
   legalName: "TODO: LEGAL ENTITY NAME",
   phone: "(682) 712-2585",
   phoneRaw: "+16827122585",
-  email: "info@dallas.alairductcleaning.com",
+  email: "dallas@alairductcleaning.com",
   streetAddress: "", // Service-area business — no fixed street address
   city: "Dallas",
   state: "TX",

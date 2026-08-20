@@ -15,10 +15,10 @@ export default function Footer() {
           <div>
             <div className="mb-4">
               <Image
-                src="/logo.svg"
+                src="/logo.png"
                 alt="AL Air Duct Cleaning Dallas"
-                width={160}
-                height={54}
+                width={220}
+                height={160}
                 className="h-12 w-auto brightness-0 invert"
               />
             </div>

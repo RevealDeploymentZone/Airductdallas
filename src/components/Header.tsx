@@ -26,10 +26,10 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center shrink-0">
           <Image
-            src="/logo.svg"
+            src="/logo.png"
             alt="AL Air Duct Cleaning Dallas"
-            width={160}
-            height={54}
+            width={220}
+            height={160}
             priority
             className="h-14 w-auto"
           />
