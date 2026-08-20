@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
   }
 
   // ── Formsubmit.co (100% free, no API key required) ──
-  // First submission triggers a one-time activation email to info@alhomeservices.us
+  // First submission triggers a one-time activation email to dallas@alairductcleaning.com
   // Click "Activate Form" in that email once — then all future leads arrive instantly.
   try {
     const serviceLabel: Record<string, string> = {
@@ -90,7 +90,7 @@ export async function POST(req: NextRequest) {
       Source: "AL Air Duct Cleaning Dallas — website lead form",
     };
 
-    const res = await fetch("https://formsubmit.co/ajax/info@alhomeservices.us", {
+    const res = await fetch("https://formsubmit.co/ajax/dallas@alairductcleaning.com", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify(payload),

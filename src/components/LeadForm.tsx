@@ -17,6 +17,17 @@ export default function LeadForm({
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [error, setError] = useState("");
 
+  const SERVICE_LABELS: Record<string, string> = {
+    "air-duct-cleaning": "Air Duct Cleaning",
+    "dryer-vent-cleaning": "Dryer Vent Cleaning",
+    "hvac-cleaning": "HVAC Cleaning",
+    "residential-air-duct-cleaning": "Residential Duct Cleaning",
+    "commercial-air-duct-cleaning": "Commercial Duct Cleaning",
+    "sanitization-deodorization": "Sanitization & Deodorization",
+    "mold-inspection-removal": "Mold Inspection & Removal",
+    "not-sure": "Not sure",
+  };
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("loading");
@@ -25,28 +36,66 @@ export default function LeadForm({
     const form = e.currentTarget;
     const data = new FormData(form);
 
-    // Honeypot check — if filled, silently succeed
+    // Honeypot — bot filled the hidden field, silently succeed
     if (data.get("website")) {
       setStatus("success");
       return;
     }
 
-    try {
-      const res = await fetch("/api/lead", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(Object.fromEntries(data.entries())),
-      });
+    const fullName = (data.get("fullName") as string)?.trim();
+    const phone = (data.get("phone") as string)?.trim();
+    const email = (data.get("email") as string)?.trim();
+    const service = data.get("service") as string;
+    const zip = (data.get("zip") as string)?.trim();
+    const message = (data.get("message") as string)?.trim();
 
-      if (!res.ok) {
-        const json = await res.json().catch(() => ({}));
-        throw new Error(json.message || "Something went wrong. Please try again.");
+    // Client-side validation
+    if (!fullName || fullName.length < 2) {
+      setError("Full name is required.");
+      setStatus("error");
+      return;
+    }
+    if (!phone || phone.length < 7) {
+      setError("A valid phone number is required.");
+      setStatus("error");
+      return;
+    }
+
+    try {
+      // Submit directly to Formsubmit.co AJAX (free, no API key)
+      // ⚠️  FIRST SUBMISSION: Formsubmit will send an activation email to
+      //     dallas@alairductcleaning.com — click "Activate Form" once.
+      //     All submissions after activation arrive instantly.
+      const res = await fetch(
+        "https://formsubmit.co/ajax/dallas@alairductcleaning.com",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            _subject: `New lead: ${fullName} — ${SERVICE_LABELS[service] ?? "General inquiry"}`,
+            _captcha: "false",
+            _template: "table",
+            Name: fullName,
+            Phone: phone,
+            Email: email || "(not provided)",
+            Service: SERVICE_LABELS[service] ?? "(not selected)",
+            ZIP: zip || "(not provided)",
+            Message: message || "(none)",
+            Source: "AL Air Duct Cleaning Dallas website",
+          }),
+        }
+      );
+
+      const json = await res.json().catch(() => ({}));
+
+      if (!res.ok || json.success === "false") {
+        throw new Error("Submission failed. Please call us directly.");
       }
 
       setStatus("success");
       form.reset();
 
-      // Fire GA4 event
+      // Fire GA4 event if available
       if (typeof window !== "undefined" && (window as unknown as { gtag?: Function }).gtag) {
         (window as unknown as { gtag: Function }).gtag("event", "generate_lead", {
           event_category: "Lead",
@@ -54,7 +103,7 @@ export default function LeadForm({
         });
       }
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Something went wrong.");
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
       setStatus("error");
     }
   }
